@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indore Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+    <header>
+
+        <h1>Indore Navigation</h1>
+        <span class="search-row">
+            
+                <div class="search-container">
+                    <input type="text" id="searchName" placeholder="Search by name...">
+                    <button onclick="searchByName()">Search</button>
+        
+                    <input type="text" id="searchLocation" placeholder="Search by location...">
+                    <button onclick="searchByLocation()">Search</button>
+                </div>
+                
+        </span>
+        <div class="header-container">
+            <div class="logo">
+                <h1><img src="indore navigation.png" alt="logo" width="200" height="60"></h1>
+            </div>
+            <nav class="navigation">
+                <button class="nav-btn" onclick="showIndoreInfo()">Indore</button>
+                <button class="nav-btn" onclick="goToGallery()">Gallery</button>
+                <button class="nav-btn" onclick="showHotels()">Hotels</button>
+                <button class="nav-btn" onclick="showRestaurants()">Restaurants</button>
+                <button class="nav-btn" onclick="showMedical()">Medical</button>
+                <button class="nav-btn" onclick="showColleges()">Colleges</button>
+               
+
+            </nav>
+            <div class="auth-buttons">
+                <button class="auth-btn" onclick="login()">Login</button>
+                <button class="auth-btn" onclick="register()">Register</button>
+              
+                    
+                
+
+            </div>
+        </div>
+    </header>
+
+    <section id="indore-info" style="display: none;">
+        <h2>Information about Indore</h2>
+        <p>All the information about Indore will be displayed here.</p>
+    </section>
+
+    <section id="hotels-info" style="display: none;">
+        <h2>List of Hotels in Indore</h2>
+        <ul id="hotel-list"></ul>
+    </section>
+
+    <section id="restaurants-info" style="display: none;">
+        <h2>Restaurants in Indore</h2>
+        <ul id="restaurant-list"></ul>
+    </section>
+
+    <section id="medical-info" style="display: none;">
+        <h2>Medical Facilities in Indore</h2>
+        <ul id="medical-list"></ul>
+    </section>
+    <section id="colleges-info" style="display: none;">
+        <h2>Colleges in Indore</h2>
+        <ul id="college-list"></ul>
+    </section>
+    <section id="indore-details" style="display: none;">
+        <h2>About Indore</h2>
+        <div class="indore-content">
+            <div class="indore-text">
+                <h3>History of Indore</h3>
+                <p>Indore, the largest city in Madhya Pradesh, has a rich history that dates back to the 16th century...</p>
+                
+                <h3>What is Indore Famous For?</h3>
+                <p>Indore is famous for its food, especially street food like Poha, Jalebi, and more...</p>
+                
+                <h3>Places to Visit in Indore</h3>
+                <ul>
+                    <li>Rajwada Palace</li>
+                    <li>Lal Bagh Palace</li>
+                    <li>Sarafa Bazaar</li>
+                    <li>Patalpani Waterfall</li>
+                    <!-- Add more places as needed -->
+                </ul>
+            </div>
+            <div class="indore-images">
+                <img src="rajwada_palace.jpg" alt="Rajwada Palace">
+                <img src="sarafa_bazaar.jpg" alt="Sarafa Bazaar">
+                <img src="patalpani_waterfall.jpg" alt="Patalpani Waterfall">
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+    </section>
+    <div id="search-results"></div>
+    
+    
+
+
+    <section id="results"></section>
+
+    <script src="script.js"></script>
+    <button onclick="showFeedbackForm()">Give Feedback</button>
+
+    <div class="feedback-form" id="feedbackForm" style="display:none;">
+        <h2>Feedback Form</h2>
+        <form>
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" readonly>
+
+            <label for="feedbackFor">Feedback For:</label>
+            <select id="feedbackFor" name="feedbackFor">
+                <option value="administrator">Administrator</option>
+                <option value="business_owner">Business Owner</option>
+                <option value="product">Product</option>
+            </select>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Enter your comments..."></textarea>
+
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" placeholder="Rate from 1 to 5">
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+
+
+    <h1>Hotels</h1>
+    <div class="hotel-list">
+        <div class="hotel-item">
+            <span>Hotel A</span>
+            <button class="favorite-button" onclick="toggleFavorite('Hotel A')">Save to Favorites</button>
+        </div>
+        <div class="hotel-item">
+            <span>Hotel B</span>
+            <button class="favorite-button" onclick="toggleFavorite('Hotel B')">Save to Favorites</button>
+        </div>
+        <!-- Add more hotel items as needed -->
+    </div>
+
+    <h2>Your Favorites</h2>
+    <ul id="favorites-list">
+        <!-- Favorite items will be dynamically added here -->
+    </ul>
+</body>
+</html>
